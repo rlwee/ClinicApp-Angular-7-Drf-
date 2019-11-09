@@ -11,10 +11,15 @@ import { AppComponent } from './app.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { Interceptor } from './interceptor'
+import { CookieService } from 'ngx-cookie-service';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     
 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor, 
+      multi: true },
+      CookieService,
+  ],
 
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,44 @@
+<div style="text-align:center">
+    <h1>
+      Login To OpenHands
+    </h1>
+  
+  
+  
+      <form
+        [formGroup]="form"  
+        (ngSubmit)="loginUser()" 
+        
+        id="login-form"
+      >
+  
+          <input 
+            formControlName="email"
+            id="email-input" 
+            class="form-control" 
+            type="text" 
+            name="email"
+            placeholder="email"
+          >
+  
+          <input 
+            formControlName="password"
+            id="password-input" 
+            class="form-control" 
+            type="password" 
+            name="password"
+            placeholder="password"
+          >
+          
+          <button 
+            type="submit"
+          >
+            login
+          </button>
+      
+      </form>
+      <p (ngClick)="registerUser()">no account? click <a routerLink='register' (ngClick)="registerUser()" >here</a> to register</p>
+  
+  
+  </div>
+  
